@@ -1,130 +1,124 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Altea Bienes Raíces</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Montserrat', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        header {
-            background-color: #2c3e50;
-            color: white;
-            padding: 1rem;
-            text-align: center;
-        }
-        nav {
-            background-color: #34495e;
-            display: flex;
-            justify-content: center;
-        }
-        nav a {
-            color: white;
-            padding: 1rem;
-            text-decoration: none;
-        }
-        nav a:hover {
-            background-color: #2c3e50;
-        }
-        section {
-            padding: 2rem;
-        }
-        .property {
-            border: 1px solid #ccc;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            background-color: white;
-        }
-        .property img {
-            max-width: 100%;
-            height: auto;
-        }
-        footer {
-            background-color: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 1rem;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Altea Bienes Raíces</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 1em;
+      text-align: center;
+    }
+    nav {
+      background-color: #34495e;
+      padding: 0.5em;
+      text-align: center;
+    }
+    nav a {
+      color: white;
+      margin: 0 1em;
+ none;
+    }
+    section {
+      padding: 2em;
+    }
+    .card {
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 1em;
+      margin: 1em;
+      width: 300px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .card img {
+      width: 100%;
+      border-radius: 4px;
+    }
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    footer {
+      background-color: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 1em;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Altea Bienes Raíces</h1>
-        <p>Soluciones inmobiliarias y registrales con confianza y experiencia</p>
-    </header>
-    <nav>
-        <a href="#inicio">Inicio</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#propiedades">Propiedades</a>
-        <a href="#nosotros">Sobre Nosotros</a>
-        <a href="#contacto">Contacto</a>
-    </nav>
-    <section id="inicio">
-        <h2>Bienvenido</h2>
-        <p>En Altea Bienes Raíces te ayudamos a comprar, vender y regularizar tus propiedades con asesoría profesional.</p>
-    </section>
-    <section id="servicios">
-        <h2>Servicios</h2>
-        <ul>
-            <li>Venta y alquiler de inmuebles</li>
-            <li>Asesoría registral de propiedades</li>
-            <li>Acompañamiento legal y técnico</li>
-            <li>Remodelación y mantenimiento</li>
-        </ul>
-    </section>
-    <section id="propiedades">
-        <h2>Propiedades en Venta y Alquiler</h2>
-        <div id="property-list"></div>
-    </section>
-    <section id="nosotros">
-        <h2>Sobre Nosotros</h2>
-        <p>Somos un equipo liderado por Rodrigo, especialista en trámites registrales, y su esposa, arquitecta experta en remodelaciones. Juntos ofrecemos soluciones integrales en bienes raíces.</p>
-    </section>
-    <section id="contacto">
-        <h2>Contacto</h2>
-        <p>Correo: contacto@alteabienesraices.com</p>
-        <p>Teléfono: +503 7000 0000</p>
-        <p>WhatsApp: +503 7000 0000</p>
-    </section>
-    <footer>
-        <p>&copy; 2024 Altea Bienes Raíces</p>
-    </footer>
-    <script>
-        // Google Sheets integration
-        const sheetID = "TU_GOOGLE_SHEET_ID";
-        const sheetRange = "A2:F100";
-        const apiKey = "TU_API_KEY";
 
-        fetch(`https://sheets.googleapis.com/v4/spreadsheets/${sheetID}/values/${sheetRange}?key=${apiKey}`)
-            .then(response => response.json())
-            .then(data => {
-                const properties = data.values;
-                const container = document.getElementById("property-list");
-                properties.forEach(row => {
-                    const [image, title, description, price, location, status] = row;
-                    const div = document.createElement("div");
-                    div.className = "property";
-                    div.innerHTML = `
-                        <img src="${image}" alt="${title}">
-                        <h3>${title}</h3>
-                        <p>${description}</p>
-                        <p><strong>Precio:</strong> ${price}</p>
-                        <p><strong>Ubicación:</strong> ${location}</p>
-                        <p><strong>Estado:</strong> ${status}</p>
-                    `;
-                    container.appendChild(div);
-                });
-            })
-            .catch(error => {
-                console.error("Error al cargar propiedades:", error);
-            });
-    </script>
+  <header>
+    <h1>Altea Bienes Raíces</h1>
+    <p>Soluciones inmobiliarias y registrales con confianza y experiencia</p>
+  </header>
+
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#propiedades">Propiedades</a>
+    <a href="#nosotros">Sobre Nosotros</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+
+  <section id="inicio">
+    <h2>Bienvenido</h2>
+    <p>En Altea Bienes Raíces te ayudamos a comprar, vender y regularizar tus propiedades con asesoría profesional.</p>
+  </section>
+
+  <section id="servicios">
+    <h2>Servicios</h2>
+    <ul>
+      <li>Venta y alquiler de inmuebles</li>
+      <li>Asesoría registral de propiedades</li>
+      <li>Acompañamiento legal y técnico</li>
+      <li>Remodelación y mantenimiento</li>
+    </ul>
+  </section>
+
+  <section id="propiedades">
+    <h2>Propiedades en Venta y Alquiler</h2>
+    <div class="card-container">
+      <div class="card">
+        https://via.placeholder.com/300x200
+        <h3>Casa en San Salvador</h3>
+        <p>3 habitaciones, 2 baños, jardín y cochera.</p>
+        <p><strong>Precio:</strong> $120,000</p>
+      </div>
+      <div class="card">
+        https://via.placeholder.com/300x200
+        <h3>Apartamento moderno</h3>
+        <p>2 habitaciones, zona céntrica, seguridad 24/7.</p>
+        <p><strong>Alquiler:</strong> $450/mes</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="nosotros">
+    <h2>Sobre Nosotros</h2>
+    <p>Somos un equipo liderado por Rodrigo, especialista en trámites registrales, y su esposa, arquitecta experta en remodelaciones. Juntos ofrecemos soluciones integrales en bienes raíces.</p>
+  </section>
+
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <p>Correo: contacto@alteabienesraices.com</p>
+    <p>Teléfono: +503 7000 0000</p>
+    <p>WhatsApp: +503 7000 0000</p>
+  </section>
+
+  <footer>
+    <p>© 2024 Altea Bienes Raíces</p>
+  </footer>
+
 </body>
 </html>
